@@ -20,19 +20,24 @@ public static void main(String[] args) {
 		robot[i].setSpeed(10);
 		robot[i].setY(550);
 		if(i == 0) {
-			robot[i].setX(100);
+			robot[i].setX(300);
+			robot[i].setY(300);
 		}
 		if(i == 1) {
-			robot[i].setX(250);
+			robot[i].setX(300);
+			robot[i].setY(300);
 		}
 		if(i == 2) {
-			robot[i].setX(400);
+			robot[i].setX(300);
+			robot[i].setY(300);
 		}
 		if(i == 3) {
-			robot[i].setX(550);
+			robot[i].setX(300);
+			robot[i].setY(300);
 		}
 		if(i == 4) {
-			robot[i].setX(700);
+			robot[i].setX(300);
+			robot[i].setY(300);
 		}
 	}
 
@@ -44,8 +49,9 @@ public static void main(String[] args) {
 while (hasended == false) {
 	for( int i = 0; i < 5; i++) {
 		Random random = new Random();
-		robot[i].move(random.nextInt(50));
-		if (robot[i].getY() <= 0) {
+		robot[i].turn(10);;
+		robot[i].move(random.nextInt(30));
+		if (robot[i].getY() == 400) {
 			hasended = true;
 			JOptionPane.showMessageDialog(null, "Robot number " + i + " has won! YAY! Also, this is a party for that robot.");
 			break;
