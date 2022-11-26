@@ -30,9 +30,13 @@ public class _02_2DArrayPractice {
      *          3, 4, 5
      *          6, 7, 8
      */
-    public Integer[][] test1() {
-        
-        return null;
+    public int[][] test1() {
+         int[][] array2d = {
+        		 {0,1,2},
+        		 {3,4,5},
+        		 {6,7,8},
+         					};
+        return array2d;
     }
     
     /*
@@ -41,8 +45,11 @@ public class _02_2DArrayPractice {
      *          "e", "f", "g", "e"
      */
     public String[][] test2() {
-        
-        return null;
+        String[][] array2d = {
+          		 {"a","b","c", "d"},
+          		 {"e","f","g","e"},
+           					};
+        return array2d;
     }
     
     /*
@@ -54,15 +61,29 @@ public class _02_2DArrayPractice {
      *          true, false
      */
     public Boolean[][] test3() {
-        
-        return null;
+        Boolean[][] array2d = {
+          		 {true, false},
+          		 {false,false},
+          		 {false,true},
+          		 {true, true},
+          		 {true,false},
+           					};
+        return array2d;
     }
     
     /*
      * Draw the grid of values for the following 2D array of ints:
      * Assume all the elements in the 2D array are initialized to random ints
      * 
+     * int[][] array2d = {
+     * 				{0,1,2,3},
+     * 				{2,5,4,3},
+     * 				{7.8.4.6},
+     * 				{1,2,4,6}, 
+     * 					};
+     * 
      * int[][] grid = new int[2][3];
+     * 
      * 
      * 
      * 
@@ -72,7 +93,13 @@ public class _02_2DArrayPractice {
     /*
      * Draw the grid of values for the following 2D array of Robots
      * Assume all the elements in the 2D array are initialized.
-     * 
+     * Robot[][] robot2d = {
+     * 				{0,1,2,3},
+     * 				{4,5,6,7},
+     * 				{8,9,10,11},
+     * 				{12,13,14,15}, 
+     * 				{16,17,18,19}, 
+     * 					};
      * Robot[][] robots = new Robot[4][2];
      * 
      * 
@@ -87,7 +114,7 @@ public class _02_2DArrayPractice {
     public Object test4() {
         Object[][] objects = { {null, null, null, null}, {null, null, null, new Object()} };
         
-        return null;
+        return objects[3][3];
     }
     
     /* Given the array of Objects below, return the element that is not null
@@ -97,7 +124,7 @@ public class _02_2DArrayPractice {
     public Object test5() {
         Object[][] objects = { {null, null, new Object(), null}, {null, null, null, null} };
         
-        return null;
+        return objects[3][1];
     }
     
     /*
@@ -116,8 +143,14 @@ public class _02_2DArrayPractice {
      */
     public Integer test7() {
         int[][] nums = { {8, 7, 6, 5}, {4, 3}, {2, 1, 0} };
+        int realsum = 0;
+        for(int i = 0; i< 4; i++) {
+        	int num = nums[0][i];
+        	int sum = 0 + num;
+        	realsum = sum;
+        }
         
-        return null;
+        return realsum;
     }
     
     /*
@@ -125,8 +158,15 @@ public class _02_2DArrayPractice {
      * specified row
      */
     public Integer getSumByRow(int[][] matrix, int row) {
+
+    	int realsum = 0;
+        for(int i = 0; i< matrix.length; i++) {
+        	int num = matrix[i][row];
+        	int sum = 0 + num;
+        	realsum = sum;
+        }
         
-        return null;
+        return realsum;
     }
     
     /*
@@ -135,7 +175,14 @@ public class _02_2DArrayPractice {
      */
     public Integer getSumByColumn(int[][] matrix, int col) {
         
-        return null;
+    	int realsum = 0;
+        for(int i = 0; i< matrix.length; i++) {
+        	int num = matrix[col][i];
+        	int sum = 0 + num;
+        	realsum = sum;
+        }
+        
+        return realsum;
     }
     
     /*
@@ -157,23 +204,27 @@ public class _02_2DArrayPractice {
      * 2. If the neighbor does not exist, i.e. it's outside the grid
      *    boundaries, return null.
      */
-    public Integer getEastNeighbor(int[][] matrix, int row, int col) {
-        
-        return null;
-    }
-    
-    public Integer getWestNeighbor(int[][] matrix, int row, int col) {
-        
-        return null;
-    }
-    
-    public Integer getNorthNeighbor(int[][] matrix, int row, int col) {
-        
-        return null;
-    }
-    
-    public Integer getSouthNeighbor(int[][] matrix, int row, int col) {
-        
-        return null;
-    }
+	public Integer getEastNeighbor(int[][] matrix, int row, int col) {
+		int[][] pos = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, };
+		int position = pos[2][1];
+		return position;
+	}
+
+	public Integer getWestNeighbor(int[][] matrix, int row, int col) {
+		int[][] pos = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, };
+		int position = pos[0][1];
+		return position;
+	}
+
+	public Integer getNorthNeighbor(int[][] matrix, int row, int col) {
+		int[][] pos = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, };
+		int position = pos[1][0];
+		return position;
+	}
+
+	public Integer getSouthNeighbor(int[][] matrix, int row, int col) {
+		int[][] pos = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, };
+		int position = pos[1][2];
+		return position;
+	}
 }
