@@ -51,22 +51,58 @@ package _07_The_Wrong_Way_Cow;
 public class TheWrongWayCow {
 
 	public static int[] findWrongWayCow(final char[][] field) {
+		int wrongcowindex;
 		int rightCows = 0;
 		int leftCows = 0;
 		int downCows = 0;
 		int upCows = 0;
+			for (int i = 0; i < field.length; i++) {
+				for (int j = 0; j < field.length; j++)
+					if (field[i][j] == 'c') {
+						if (field[i][j + 1] == 'o') {
+							if (field[i][j + 2] == 'w') {
+								rightCows += 1;
+							}
+						}
+					}
+			}
+		
 		for (int i = 0; i < field.length; i++) {
-			for (int j = 0; j < field.length; i++) {
+			for (int j = 0; j < field.length; j++)
 				if (field[i][j] == 'c') {
-					if (field[i][j+1] == 'o') {
-						if (field[i][j+2] == 'w') {
-							rightCows +=1;
+					if (field[i + 1][j] == 'o') {
+						if (field[i + 2][j] == 'w') {
+							downCows += 1;
 						}
 					}
 				}
-			}
 		}
+		for (int i = 0; i < field.length; i++) {
+			for (int j = 0; j < field.length; j++)
+				if (field[i][j] == 'c') {
+					if (field[i][j - 1] == 'o') {
+						if (field[i][j - 2] == 'w') {
+							leftCows += 1;
+						}
+					}
+				}
+		}
+		for (int i = 0; i < field.length; i++) {
+			for (int j = 0; j < field.length; j++)
+				if (field[i][j] == 'c') {
+					if (field[i - 1][j] == 'o') {
+						if (field[i - 2][j] == 'w') {
+							upCows += 1;
+						}
+					}
+				}
+		}
+		System.out.println(rightCows);
+		System.out.println(leftCows);
+		System.out.println(downCows);
+		System.out.println(upCows);
 
 		return null;
 	}
+
 }
