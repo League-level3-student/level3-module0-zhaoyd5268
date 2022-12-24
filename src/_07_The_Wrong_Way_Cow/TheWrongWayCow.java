@@ -51,58 +51,70 @@ package _07_The_Wrong_Way_Cow;
 public class TheWrongWayCow {
 
 	public static int[] findWrongWayCow(final char[][] field) {
-		int wrongcowindex;
+		int[] returnCows;
+		int upX = 0;
+		int upY = 0;
+		int downX = 0;
+		int downY = 0;
+		int leftX = 0;
+		int leftY = 0;
+		int rightX = 0;
+		int rightY = 0;
 		int rightCows = 0;
 		int leftCows = 0;
 		int downCows = 0;
 		int upCows = 0;
-			for (int i = 0; i < field.length; i++) {
-				for (int j = 0; j < field.length; j++)
-					if (field[i][j] == 'c') {
-						if (field[i][j + 1] == 'o') {
-							if (field[i][j + 2] == 'w') {
-								rightCows += 1;
-							}
-						}
-					}
-			}
-		
 		for (int i = 0; i < field.length; i++) {
-			for (int j = 0; j < field.length; j++)
+			for (int j = 0; j < field[i].length; j++)
 				if (field[i][j] == 'c') {
-					if (field[i + 1][j] == 'o') {
-						if (field[i + 2][j] == 'w') {
+					if (i + 1 < field.length && field[i + 1][j] == 'o') {
+						if (i + 2 < field.length && field[i + 2][j] == 'w') {
+							downX = i;
+							downY = j;
 							downCows += 1;
 						}
 					}
-				}
-		}
-		for (int i = 0; i < field.length; i++) {
-			for (int j = 0; j < field.length; j++)
-				if (field[i][j] == 'c') {
-					if (field[i][j - 1] == 'o') {
-						if (field[i][j - 2] == 'w') {
+					if (j + 1 < field[i].length && field[i][j + 1] == 'o') {
+						if (j + 2 < field[i].length && field[i][j + 2] == 'w') {
+							rightX = i;
+							rightY = j;
+							rightCows += 1;
+						}
+					}
+					if (j - 1 > -1 && field[i][j - 1] == 'o') {
+						if (j - 2 > -1 && field[i][j - 2] == 'w') {
+							leftX = i;
+							leftY = j;
 							leftCows += 1;
 						}
 					}
-				}
-		}
-		for (int i = 0; i < field.length; i++) {
-			for (int j = 0; j < field.length; j++)
-				if (field[i][j] == 'c') {
-					if (field[i - 1][j] == 'o') {
-						if (field[i - 2][j] == 'w') {
+					if (i - 1 > -1 && field[i - 1][j] == 'o') {
+						if (i - 2 > -1 && field[i - 2][j] == 'w') {
+							upX = i;
+							upY = j;
 							upCows += 1;
 						}
 					}
 				}
+			
 		}
+
+
 		System.out.println(rightCows);
 		System.out.println(leftCows);
 		System.out.println(downCows);
 		System.out.println(upCows);
+		if (rightCows == 1) {
+			returnCows = new int[] { rightY, rightX };
+		} else if (leftCows == 1) {
+			returnCows = new int[] { leftY, leftX };
+		} else if (downCows == 1) {
+			returnCows = new int[] { downY, downX };
+		} else {
+			returnCows = new int[] { upY, upX };
+		}
 
-		return null;
+		return returnCows;
 	}
 
 }
